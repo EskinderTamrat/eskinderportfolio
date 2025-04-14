@@ -18702,72 +18702,98 @@ footer {
 
 
 
+/*social media post*/
 
-/* Masonry Grid Layout */
-    .masonry-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Flexible columns */
-        grid-auto-rows: 1fr; /* Make rows equal in height */
-        gap: 20px; /* Smaller gap between items */
-        position: relative;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.space-border {
+    width: 60px;
+    height: 4px;
+    background-color: #222;
+    margin: 20px auto;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.grid-item img:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    /* Masonry Item (each grid item) */
-    .masonry-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        padding: 0;
-    }
+/* Modal */
+.image-preview-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    text-align: center;
+    overflow: auto;
+}
 
-    /* Image styling to maintain square aspect ratio */
-    .masonry-item img {
-        width: 100%;
-        height: 100%;  /* Force height to match width for square aspect */
-        object-fit: cover; /* Ensure the image covers the space */
-        border-radius: 5px;
-    }
+.image-preview-modal .modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    margin: 5vh auto;
+    display: block;
+    object-fit: contain;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    border-radius: 10px;
+    animation: zoomIn 0.3s ease-in-out;
+}
 
-    /* Fade-In Animation */
-    .fade-in {
-        opacity: 0;
-        transform: scale(0.95);
-        animation: fadeZoomIn 0.8s ease forwards;
-    }
+.image-preview-modal .close-btn {
+    position: absolute;
+    top: 30px;
+    right: 45px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    /* Delay animation for each item */
-    .fade-in:nth-child(1) { animation-delay: 0.1s; }
-    .fade-in:nth-child(2) { animation-delay: 0.2s; }
-    .fade-in:nth-child(3) { animation-delay: 0.3s; }
-    .fade-in:nth-child(4) { animation-delay: 0.4s; }
-    .fade-in:nth-child(5) { animation-delay: 0.5s; }
-    .fade-in:nth-child(6) { animation-delay: 0.6s; }
+.image-preview-modal .close-btn:hover {
+    color: #ccc;
+}
 
-    @keyframes fadeZoomIn {
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    /* Responsive layout for smaller screens */
-    @media screen and (max-width: 576px) {
-        .masonry-grid {
-            grid-template-columns: 1fr; /* Single column layout for small screens */
-            gap: 15px; /* Smaller gap */
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        .masonry-grid {
-            grid-template-columns: repeat(2, 1fr);  /* Two items per row */
-            gap: 20px; /* Default gap for medium screens */
-        }
-    }
-
-
-
-
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
 
