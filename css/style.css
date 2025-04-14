@@ -18685,6 +18685,7 @@ footer {
 @media screen and (max-width: 576px) {
     .masonry-grid-vid {
         gap: 15px;
+        margin: 18px;
         /* Reduce gap for mobile screens */
     }
 }
