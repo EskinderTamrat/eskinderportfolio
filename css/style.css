@@ -18666,6 +18666,15 @@ footer {
     object-fit: cover;
     /* Ensures the video fills the container */
 }
+video:-webkit-full-screen {
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+  }
+  
+  video:fullscreen {
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+  }
 
 /* Fade-In Animation */
 .fade-in {
